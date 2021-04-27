@@ -10,12 +10,12 @@ import os
 from boto.s3.connection import S3Connection
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = S3Connection(os.environ['FLASK_APP_KEY'])
+app.config['SECRET_KEY'] = os.getenv('FLASK_APP_KEY')
 Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///movie-library.db'
 db = SQLAlchemy(app)
 
-TMDB_API = S3Connection(os.environ['TMDB_API'])
+TMDB_API = os.getenv('TMDB_API')
 TMDB_URL = "https://api.themoviedb.org/3/search/movie/"
 
 class Show(db.Model):
