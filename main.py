@@ -20,13 +20,13 @@ TMDB_URL = "https://api.themoviedb.org/3/search/movie/"
 
 class Show(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.Text, unique=True, nullable=False)
+    title = db.Column(db.String(250), unique=True, nullable=False)
     year = db.Column(db.Integer, unique=False, nullable=False)
-    description = db.Column(db.Text, unique=False, nullable=False)
+    description = db.Column(db.String(1000), unique=False, nullable=False)
     rating = db.Column(db.Float, unique=False, nullable=False)
     ranking = db.Column(db.Integer, nullable=True)
-    review = db.Column(db.Text, unique=False, nullable=False)
-    img_url = db.Column(db.Text, unique=False, nullable=False)
+    review = db.Column(db.String(250), unique=False, nullable=False)
+    img_url = db.Column(db.String(250), unique=False, nullable=False)
 
     def __repr__(self):
         return '<Show %r>' % self.title
