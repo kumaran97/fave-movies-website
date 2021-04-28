@@ -122,7 +122,7 @@ def find():
             year=movie_results[0]["release_date"][:4],
             description=movie_results[0]["overview"],
             rating=0,
-            ranking="None",
+            ranking=0,
             review="None",
             img_url=f"https://image.tmdb.org/t/p/w500{movie_results[0]['backdrop_path']}"
         )
