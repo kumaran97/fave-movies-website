@@ -1,4 +1,4 @@
-Personal Favourite Movies Website with Recommendation algorithm
+**Personal Favourite Movies Website with Recommendation algorithm**
 
 https://kumaran-top-10-movie-site.herokuapp.com/
 
