@@ -42,19 +42,6 @@ class AddForm(FlaskForm):
     title = StringField('Move Title', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
-# new_show = Show (
-#         title="Game of Thrones",
-#         year=2011,
-#         description="7 families across Westeros fight for the Iron Throne",
-#         rating=8.7,
-#         ranking=5,
-#         review="Amazing start... let's not talk about the ending",
-#         img_url="https://cdn.shopify.com/s/files/1/0006/6060/2935/products/gothoipossnw_530x@2x.jpg?v=1556694124"
-#     )
-#
-# db.session.add(new_show)
-# db.session.commit()
-
 all_shows = []
 all_recommendations = {}
 
@@ -116,11 +103,14 @@ def find():
         }
         response = requests.get(url=f"{TMDB_URL}", params=parameters)
         movie_results = response.json()["results"]
-        print(movie_results[0]["original_title"])
+        if len(movie_results[0]["overview"]) > 250:
+            movie_description = movie_results[0]["overview"][:246] + '...'
+        else:
+            movie_description = movie_results[0]["overview"]
         new_show = Show(
             title=movie_results[0]["original_title"],
             year=movie_results[0]["release_date"][:4],
-            description=movie_results[0]["overview"],
+            description=movie_description,
             rating=0,
             ranking=0,
             review="None",
