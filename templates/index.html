@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
-{% block title %}My Top 10 Favourite Movies{% endblock %}
+{% block title %}My Favourite Movies{% endblock %}
 
 {% block content %}
 <div class="container">
-  <h1 class="heading">My Top 10 Favourite Movies</h1>
+  <h1 class="heading">My Favourite Movies</h1>
   <p class="description">Add your favourite movies here and find recommendations based on your favourites!</p>
 
     {% for show in shows: %}
